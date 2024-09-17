@@ -52,6 +52,8 @@ Use absolute path: Don't use this because it doesn't account changing around thi
 pups_df_ab = read_csv("~/Documents/fall 2024/p8105/lectures/data_wrangling_i/data/FAS_pups.csv")
 ```
 
+NEVER DO READ.CSV()
+
 Playing around with read_csv() parameters:
 ```{r}
 litters_df = 
@@ -99,6 +101,10 @@ pulse_df = read_sas("data/public_pulse_data.sas7bdat")
 pulse_df
 ```
 
+Don't use $
+```{r}
+litters_df$`Litter Number`
+```
 
 
 
