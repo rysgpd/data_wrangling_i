@@ -68,6 +68,15 @@ pull(litters_df, gd0_weight)
 What if we code `group` as a character variable?
 
 ```{r}
+litters_df = 
+  read_csv(
+    file = "data/FAS_litters.csv",
+    na = c("NA", "", "."),
+    col_types = cols(
+      Group = col_factor()
+    )
+  )
 
+litters_df
 ```
 
