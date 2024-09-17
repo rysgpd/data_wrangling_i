@@ -8,6 +8,8 @@ September 17 Lecture: This document will show how to import data.
 ```{r setup, echo= FALSE, message = FALSE}
 library(tidyverse)
 # can do library(janitor) and then just do clean_names, but it's only one function that we actually need so don't want to load the entire package.
+library(readxl)
+library(haven)
 ```
 
 Import FAS Litters CSV:
@@ -79,4 +81,24 @@ litters_df =
 
 litters_df
 ```
+
+Importing from Excel:
+
+```{r excel_import}
+# can specify sheets and ranges as well
+mlb_df = read_excel("data/mlb11.xlsx")
+
+mlb_df
+```
+
+
+Importing from SAS:
+```{r sas_import}
+pulse_df = read_sas("data/public_pulse_data.sas7bdat")
+
+pulse_df
+```
+
+
+
 
