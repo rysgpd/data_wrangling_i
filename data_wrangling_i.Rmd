@@ -7,12 +7,20 @@ September 17 Lecture: This document will show how to import data.
 
 ```{r setup, echo= FALSE, message = FALSE}
 library(tidyverse)
+# can do library(janitor) and then just do clean_names, but it's only one function that we actually need so don't want to load the entire package.
 ```
 
 Import FAS Litters CSV:
 
 ```{r}
 litters_df = read_csv("data/FAS_litters.csv")
+
+#overwrite litters dataframe with better column names - use janitor function:
+
+#clean names makes it snake case, replaces spaces, etc
+litters_df = janitor::clean_names(litters_df)
+
+
 ```
 
 ```{r}
