@@ -124,4 +124,24 @@ litters_df = mutate(litters_df, wt_gain = gd18_weight - gd0_weight)
 
 
 # or do this: 
+# use command shift m to get %>% 
+
+litters_df =
+  read_csv("data/FAS_litters.csv", na=c("NA", ".", "")) %>% 
+  janitor::clean_names() %>% 
+  select(-pups_born_alive) %>% 
+  filter(group == "Con7") %>% 
+  mutate(
+    wt_gain = gd18_weight - gd0_weight,
+    group = str_to_lower(group)
+    )
 ```
+
+    ## Rows: 49 Columns: 8
+    ## ── Column specification ────────────────────────────────────────────────────────
+    ## Delimiter: ","
+    ## chr (2): Group, Litter Number
+    ## dbl (6): GD0 weight, GD18 weight, GD of Birth, Pups born alive, Pups dead @ ...
+    ## 
+    ## ℹ Use `spec()` to retrieve the full column specification for this data.
+    ## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
