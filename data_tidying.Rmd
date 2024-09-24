@@ -11,6 +11,9 @@ library(readxl)
 library(haven)
 ```
 
+
+## PIVOT LONGER
+
 ```{r}
 pulse_df = read_sas("data/public_pulse_data.sas7bdat") %>% 
   janitor::clean_names()
@@ -71,6 +74,29 @@ litters_df =
       "gd18_weight" ~ 18
     )
   )
+```
+## PIVOT WIDER
+
+Let's make up an analysis result table
+
+```{r}
+analysis_df =
+  tibble(
+    group = c("treatment", "treatment", "control", "control"),
+    time = c("pre", "post", "pre", "post"),
+    mean = c(4, 10, 4.2, 5)
+  )
+```
+
+Pivot wider for human readability
+
+```{r}
+analysis_df %>% 
+  pivot_wider(
+    names_from = time,
+    values_from = mean
+  ) %>% 
+  knitr::kable() # neat table
 ```
 
 
